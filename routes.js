@@ -18,7 +18,7 @@ route.post('/login/register', loginController.register);        //Criação User
 route.post('/login/login', loginController.login);              //Login User
 route.get('/login/logout', loginController.logout);             //Logout User
 route.get('/login/rpassword', loginController.getPassword);     //Recuperar password
-route.post('/login/rpassword', loginController.sendPassword);
+route.post('/login/rpassword1', loginController.sendPassword);
 route.get('/login/resetpassword/:email/:id', loginController.receivePassword);  //Endereço de destino dos mails
 route.post('/login/resetpassword1', loginController.resetpasswordRec);
 
