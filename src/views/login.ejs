@@ -1,0 +1,60 @@
+<%- include('includes/head') %>
+<%- include('includes/nav') %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
+
+    <div class="col-lg-8 my-3">
+      <h1 class="text-center">Bem-vindo à Agenda Familiar</h1>
+      <p class="text-center lead">Se você já tem uma conta, faça login abaixo, ou então crie uma nova conta</p>
+
+      <%- include('includes/messages') %>
+
+      <div class="row">
+        <div class="col-lg my-5">
+          <h4>Crie e partilhe a sua Agenda com a sua família e amigos</h4>
+          <p>Você pode criar uma agenda e partilhar os seus dados e gestão com
+            outros elementos da sua família ou amigos.</p>
+          <p>Como administrador da sua Agenda, pode criar novos users
+            para eles poderem ter acesso aos contatos. </p>
+
+
+          <a href="/login/index" class="w-25">Registar novo User</a><br>
+        </div>
+        
+        <div class="col-lg my-5">
+          <h4>Faça seu login</h4>
+
+          <p>Introduza os seus dados para efectuar login:</p>
+
+          <form class="form_login" action="/login/login" method="POST">
+            <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+            <div class="form-group">
+              <label>Endereço Email</label>
+              <input type="email" class="form-control" name="email" autocomplete="off">
+            </div>
+            <div class="form-group">
+              <label>Senha</label>
+              <input type="password" class="form-control" name="password">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Entrar</button>
+            <a href="/login/rpassword" class="w-25 p-2">Recuperar password</a>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <p>Este projeto de Agenda Familiar foi elaborado por Luís Miguel de Oliveira Fernandes. Clique no seguinte
+          link para saber mais sobre as tecnologias e recursos usados para a elaboração deste projeto.<a href="/info"
+        class="w-25 p-3">+info</a></p>
+
+      </div>
+    </div>
+
+    <div class="col-lg-2"></div>
+  </div>
+
+</div>
+
+<%- include('includes/footer') %>

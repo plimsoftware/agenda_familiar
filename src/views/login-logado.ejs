@@ -1,0 +1,22 @@
+<%- include('includes/head') %>
+<%- include('includes/nav') %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
+
+    <div class="col-lg-8 my-3">
+      <h1 class="text-center">Olá <%= user.email %></h1>
+      <p class="text-center lead">Bem-vindo à sua Agenda Familiar. Comece já a gerir os seus <a href="/index">contatos</a>.</p>
+      <p class="text-center">Também pode aceder aos seus contatos clicando em Agenda Familiar no navegador.</p>
+
+      <%- include('includes/messages') %>
+
+    </div>
+
+    <div class="col-lg-2"></div>
+  </div>
+
+</div>
+
+<%- include('includes/footer') %>

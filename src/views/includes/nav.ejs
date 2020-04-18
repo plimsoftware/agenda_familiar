@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+  <% if (user) { %>
+
+  <% if (user.agendaemail === '') { %>
+  <a class="navbar-brand" href="/index">Agenda Familiar de <%= user.email %></a>
+  <% } else { %>
+    <a class="navbar-brand" href="/index">Agenda Familiar de <%= user.agendaemail %> ( <%= user.email %> )</a>
+  <% } %>
+  <% } else { %>
+  <a class="navbar-brand" href="/index">Agenda Familiar</a>
+  <% } %>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+
+      <% if (!user) {%>
+      <li class="nav-item">
+        <a class="nav-link" href="/">Entrar</a>
+      </li>
+      <% } %>
+
+      <% if (user) { %>
+      <li class="nav-item">
+        <a class="nav-link" href="/contato/index">Adicionar contato</a>
+      </li>
+      <% if (user.admin === 'true') {%>
+      <li class="nav-item">
+        <a class="nav-link" href="/login/members">Administrar membros</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/login/accountadmin">Conta</a>
+      </li>
+      <% } else { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/login/account">Conta</a>
+        </li>
+      <% } %>
+
+
+
+      <li class="nav-item">
+        <a class="nav-link" href="/login/logout">Sair</a>
+      </li>
+      <% } %>
+
+    </ul>
+  </div>
+
+</nav>

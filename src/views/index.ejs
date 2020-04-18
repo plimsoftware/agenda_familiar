@@ -1,0 +1,72 @@
+<%- include('includes/head') %>
+<%- include('includes/nav') %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-1"></div>
+
+    <div class="col-lg-10 my-3">
+      <h1 class="text-center">Agenda Familiar</h1>
+      <p class="text-center lead">Os seus contatos abaixo:</p>
+
+      <%- include('includes/messages') %>
+
+      <% if (contatos.length > 0 ) { %>
+      <div class="responsive-table">
+        <table class="table my-3">
+          <tr>
+            <th>Nome</th>
+            <th>Apelido</th>
+            <th>Telefone</th>
+            <th>E-mail</th>
+            <th></th>
+            <th></th>
+          </tr>
+          <% contatos.forEach(contato => { %>
+          <tr>
+            <% if (expandir != contato._id){ %>
+            <td><a href="/contato/expand/<%= contato._id %>">+</a> <%= contato.nome %>
+            <% } else { %>
+            <td><a href="/index">-</a> <%= contato.nome %>
+            <% } %>
+            </td>
+            <td><%= contato.apelido %></td>
+            <td><%= contato.telefone %></td>
+            <td><%= contato.email %></td>
+            <td class="d-print-none"><a href="/contato/index/<%= contato._id %>">Editar</a></td>
+            <td class="d-print-none"><a class="text-danger" href="/contato/delete/<%= contato._id %>">Eliminar</a></td>
+          
+          </tr>
+            <% if (expandir == contato._id){ %>
+                <tr><td colspan="6">
+                <table class="table table-sm">
+                <tr>
+                  <th>Rua</th>
+                  <th>Código Postal</th>
+                  <th>Localidade</th>
+                </tr>
+                <tr>
+                  <td><%= contato.rua %></td>
+                  <td><%= contato.cp %></td>
+                  <td><%= contato.localidade %></td>
+                </td>
+                </table>
+              </td></tr>
+            <% } %>
+          
+     
+          <% }); %>
+        </table>
+        </div>
+      <% } else { %>
+      <p class="text-center lead">Não existem contatos na sua agenda</p>
+      <% } %>
+
+    </div>
+
+    <div class="col-lg-1"></div>
+  </div>
+
+</div>
+
+<%- include('includes/footer') %>

@@ -1,0 +1,67 @@
+<%- include('includes/head') %>
+<%- include('includes/nav') %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
+
+    <div class="col-lg-8 my-3">
+      <h1 class="text-center">Administrar membros</h1>
+      <p class="text-center lead">Faça a gestão das contas que têm acesso à sua agenda.</p>
+
+      <%- include('includes/messages') %>
+
+      <div class="row">
+        <div class="col-lg my-5">
+          <h4>Lista de membros</h4>
+
+          <% if (membros.length > 0 ) { %>
+
+              <table class="table my-3">
+                <% membros.forEach(membro => { %>
+                <tr>
+                  <td><%= membro.email %></td>
+                  <td><a class="text-danger" href="/login/memberDelete/<%= membro._id %>">Eliminar</a></td>
+                </tr>
+                <% }); %>
+              </table>
+
+            <% } else { %>
+            <p class="text-center lead">Atualmente sem membros</p>
+            <% } %>
+      
+          
+        </div>
+
+        <div class="col-lg my-5">
+          <h4>Crie um novo membro</h4>
+
+          <p>Introduza abaixo os dados necessários para criar a nova conta:</p>
+
+          <form class="form_login" action="/login/membersRegister" method="POST">
+            <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+            <div class="form-group">
+              <label>Endereço Email</label>
+              <input type="email" class="form-control" name="email" autocomplete="off">
+            </div>
+            <div class="form-group">
+              <label>Senha</label>
+              <input type="password" class="form-control" name="password">
+            </div>
+            <div class="form-group">
+              <label>Repita Senha</label>
+              <input type="password" class="form-control" name="repassword">
+            </div>
+            <input type="hidden" name="admin" value="false">
+            <button type="submit" class="btn btn-primary">Criar novo Membro</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-2"></div>
+  </div>
+
+</div>
+
+<%- include('includes/footer') %>

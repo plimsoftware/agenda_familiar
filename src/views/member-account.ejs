@@ -1,0 +1,52 @@
+<%- include('includes/head') %>
+<%- include('includes/nav') %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
+
+    <div class="col-lg-8 my-3">
+      <h1 class="text-center">Gestão de conta</h1>
+
+      <%- include('includes/messages') %>
+
+      <div class="row">
+        <div class="col-lg my-5">
+          <h4>Altere a sua password</h4>
+          <p>Preencha os campos abaixo:</p>
+
+          <form class="form_accountUpdate" action="/login/account/update" method="POST">
+            <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+            <div class="form-group">
+              <label>Senha</label>
+              <input type="password" class="form-control" name="password">
+            </div>
+            <div class="form-group">
+              <label>Repita Senha</label>
+              <input type="password" class="form-control" name="repassword">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Alterar password</button>
+          </form>
+
+        </div>
+
+        <div class="col-lg my-5">
+          <h4>Eliminar Conta</h4>
+
+          <p>Se desejar eliminar a sua conta, prima o botão abaixo.</p>
+          <form class="form_accountDelete" action="/login/account/delete" method="POST">
+            <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+            <button type="submit" class="btn btn-primary" id="apagarBt">Apagar Conta</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-2"></div>
+  </div>
+
+</div>
+
+<%- include('includes/footer') %>

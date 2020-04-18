@@ -1,0 +1,47 @@
+<%- include('includes/head') %>
+<%- include('includes/nav') %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
+
+    <div class="col-lg-8 my-5">
+      <h1 class="display-5 text-center">Projeto Agenda Familiar</h1>
+      <h6 class="text-center">V1.0.0</h6>
+      <p class="display-8 text-center lead">Este projeto de Agenda Familiar foi elaborado por Luís Fernandes, no seguimento do Curso de Javascript Moderno
+        do básico ao avançado (2020). Um grande agradecimento ao formador Luiz Otávio Miranda. Procurem no Udemy.com 
+      pelos seus cursos. São excelentes, aconselho!!</p>
+    </div>
+
+    <div class="col-lg-2"></div>
+  </div>
+  <h5>Abaixo segue uma listagem dos recursos utilizados para a elaboração deste projeto:</h5><br>
+  <dl class="row">
+    <dt class="col-sm-3">Frontend</dt>
+    <dd class="col-sm-9">
+      <p>Babel</p>
+      <p>Webpack</p>
+    </dd>
+  </dl>
+  <dl class="row">
+    <dt class="col-sm-3">Backend</dt>
+    <dd class="col-sm-9">
+      <p>Node.js (CSRF, bcrypt.js, PM2)</p>
+      <p>EJS</p>
+      <p>Express (Helmet, connect-flash)</p>
+      <p>MongoDB (Mongoose, sessions, Model View Controller)</p>
+      <p>SendGrid</p>
+    </dd>
+  </dl>
+  <dl class="row">
+    <dt class="col-sm-3">Deployment</dt>
+    <dd class="col-sm-9">
+      <p>Google Cloud Platform</p>
+      <p>SSL/TLS(HTTPS)</p>
+      <p>Git</p>
+      <p>NGINX</p>
+    </dd>
+  </dl>
+</div>
+
+<%- include('includes/footer') %>
