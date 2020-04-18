@@ -79,6 +79,7 @@ exports.deleteaccountadmin = async function (req, res) {
 
 exports.getPassword = (req, res) => {
     return res.render('login-recover');
+    
 };
 
 exports.sendPassword = async function (req, res) {
